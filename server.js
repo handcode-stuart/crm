@@ -10,8 +10,11 @@ connectDB();
 app.use(express.json({ extended: false }));
 
 // Define Routes
-app.use("/api/v1/users", require("./routes/api/v1/users"));
 app.use("/api/v1/auth", require("./routes/api/v1/auth"));
+app.use("/api/v1/users", require("./routes/api/v1/users"));
+app.use("/api/v1/companies", require("./routes/api/v1/companies"));
+app.use("/api/v1/contacts", require("./routes/api/v1/contacts"));
+app.use("/api/v1/jobs", require("./routes/api/v1/jobs"));
 
 // Set static files in production
 if (process.env.NODE_ENV === "production") {
