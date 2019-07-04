@@ -1,24 +1,18 @@
 import React, { useEffect } from "react";
 import { Provider } from "react-redux";
 import { BrowserRouter as Router } from "react-router-dom";
-import { createGlobalStyle } from "styled-components";
+import { ThemeProvider } from "styled-components";
 
+import GlobalStyle from "./GlobalStyle";
 import { loadUser } from "./actions/auth";
 import RouteMapper from "./routing/RouteMapper";
 import setAuthToken from "./utils/setAuthToken";
 import store from "./store";
 
-const GlobalStyle = createGlobalStyle`
-    * {
-        box-sizing: border-box;
-    }
-
-    html, body {
-        margin: 0;
-        padding: 0;
-        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
-    }
-`;
+const theme = {
+    primaryColor: "#151b57",
+    secondaryColor: "#FFF",
+};
 
 // If a token is found in localStorage then set axios headers
 if (localStorage.token) setAuthToken(localStorage.token);
@@ -32,7 +26,9 @@ const App = () => {
         <Provider store={store}>
             <GlobalStyle />
             <Router>
-                <RouteMapper />
+                <ThemeProvider theme={theme}>
+                    <RouteMapper />
+                </ThemeProvider>
             </Router>
         </Provider>
     );

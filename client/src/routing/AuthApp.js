@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 
 import Container from "../components/Container";
@@ -14,20 +14,22 @@ import Jobs from "../components/pages/auth/Jobs";
 
 const AuthApp = () => {
     return (
-        <Container>
+        <Fragment>
             <AuthNav />
-            <Switch>
-                <Route exact path='/' component={Dashboard} />
-                <Route exact path='/contacts' component={Contacts} />
-                <Route path='/contacts/new' component={NewContact} />
-                <Route exact path='/companies' component={Companies} />
-                <Route path='/companies/new' component={NewCompany} />
-                <Route exact path='/jobs' component={Jobs} />
-                <Route path='/jobs/new' component={NewJob} />
-                <Route path='/settings' component={Settings} />
-                <Route render={() => <Redirect to='/' />} />
-            </Switch>
-        </Container>
+            <Container>
+                <Switch>
+                    <Route exact path='/' component={Dashboard} />
+                    <Route exact path='/contacts' component={Contacts} />
+                    <Route path='/contacts/new' component={NewContact} />
+                    <Route exact path='/companies' component={Companies} />
+                    <Route path='/companies/new' component={NewCompany} />
+                    <Route exact path='/jobs' component={Jobs} />
+                    <Route path='/jobs/new' component={NewJob} />
+                    <Route path='/settings' component={Settings} />
+                    <Route render={() => <Redirect to='/' />} />
+                </Switch>
+            </Container>
+        </Fragment>
     );
 };
 

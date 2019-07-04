@@ -9,6 +9,7 @@ import Container from "../components/Container";
 const StyledNav = styled.nav`
     width: 100%;
     padding: 12px 0;
+    background-color: ${props => props.theme.primaryColor};
 
     > div {
         display: flex;
@@ -25,6 +26,12 @@ const StyledNav = styled.nav`
 
             a {
                 margin: 0;
+                color: ${props => props.theme.secondaryColor};
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
             }
         }
     }
@@ -39,13 +46,13 @@ const AuthNav = ({ logout }) => {
                         <Link to='/'>Dashboard</Link>
                     </li>
                     <li>
-                        <Link to='/companies'>Companies</Link>
-                    </li>
-                    <li>
                         <Link to='/jobs'>Jobs</Link>
                     </li>
                     <li>
                         <Link to='/contacts'>Contacts</Link>
+                    </li>
+                    <li>
+                        <Link to='/companies'>Companies</Link>
                     </li>
                     <li>
                         <Link to='/settings'>Settings</Link>

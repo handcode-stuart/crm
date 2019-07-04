@@ -3,12 +3,16 @@ import React from "react";
 const ContactsList = () => {
     return (
         <table>
-            <tr>
-                <th>Name</th>
-            </tr>
-            <tr>
-                <td>Stuart</td>
-            </tr>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Stuart</td>
+                </tr>
+            </tbody>
         </table>
     );
 };

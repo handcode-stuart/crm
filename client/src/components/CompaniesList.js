@@ -3,12 +3,16 @@ import React from "react";
 const CompaniesList = () => {
     return (
         <table>
-            <tr>
-                <th>Name</th>
-            </tr>
-            <tr>
-                <td>Company 1</td>
-            </tr>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Company 1</td>
+                </tr>
+            </tbody>
         </table>
     );
 };
