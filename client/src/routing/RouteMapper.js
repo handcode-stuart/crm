@@ -4,11 +4,13 @@ import PropTypes from "prop-types";
 
 import AuthApp from "./AuthApp";
 import GuestApp from "./GuestApp";
-import Spinner from "../layout/Spinner";
+import Spinner from "../components/Spinner";
 
 const RouteMapper = ({ auth: { isAuthenticated, loading } }) => {
     return (
-        <Fragment>{!loading ? isAuthenticated ? <AuthApp /> : <GuestApp /> : <Spinner />}</Fragment>
+        <Fragment>
+            {!loading ? isAuthenticated ? <AuthApp /> : <GuestApp /> : <Spinner fullpage />}
+        </Fragment>
     );
 };
 

@@ -6,10 +6,7 @@ const GuestNav = () => {
         <div>
             <ul>
                 <li>
-                    <Link to='/'>Home</Link>
-                </li>
-                <li>
-                    <Link to='/login'>Log in</Link>
+                    <Link to='/'>Log in</Link>
                 </li>
                 <li>
                     <Link to='/register'>Register</Link>
