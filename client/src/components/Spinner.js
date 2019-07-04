@@ -15,11 +15,11 @@ const FullPageSpinner = styled.div`
 const Spinner = ({ fullpage }) => {
     return fullpage ? (
         <FullPageSpinner>
-            <h1>Loading...</h1>
+            <p>Loading...</p>
         </FullPageSpinner>
     ) : (
         <div>
-            <h1>Loading...</h1>
+            <p>Loading...</p>
         </div>
     );
 };
