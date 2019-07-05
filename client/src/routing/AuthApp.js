@@ -1,9 +1,10 @@
 import React, { Fragment } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 
-import Container from "../components/Container";
+import Page from "../components/Page";
 import Dashboard from "../components/pages/auth/Dashboard";
 import AuthNav from "../components/AuthNav";
+import AuthSidebar from "../components/AuthSidebar";
 import Settings from "../components/pages/auth/Settings";
 import Contacts from "../components/pages/auth/Contacts";
 import NewContact from "../components/pages/auth/NewContact";
@@ -16,7 +17,8 @@ const AuthApp = () => {
     return (
         <Fragment>
             <AuthNav />
-            <Container>
+            <AuthSidebar />
+            <Page>
                 <Switch>
                     <Route exact path='/' component={Dashboard} />
                     <Route exact path='/contacts' component={Contacts} />
@@ -28,7 +30,7 @@ const AuthApp = () => {
                     <Route path='/settings' component={Settings} />
                     <Route render={() => <Redirect to='/' />} />
                 </Switch>
-            </Container>
+            </Page>
         </Fragment>
     );
 };

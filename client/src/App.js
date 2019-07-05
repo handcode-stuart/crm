@@ -10,7 +10,7 @@ import setAuthToken from "./utils/setAuthToken";
 import store from "./store";
 
 const theme = {
-    primaryColor: "#151b57",
+    primaryColor: "#CCC",
     secondaryColor: "#FFF",
 };
 
