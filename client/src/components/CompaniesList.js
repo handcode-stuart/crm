@@ -1,6 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import { fetchCompanies } from "../actions/company";
 
-const CompaniesList = () => {
+const CompaniesList = ({ company, fetchCompanies }) => {
+    useEffect(() => {
+        fetchCompanies();
+    }, [fetchCompanies]);
     return (
         <table>
             <thead>
@@ -9,12 +14,27 @@ const CompaniesList = () => {
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Company 1</td>
-                </tr>
+                {company.loading ? (
+                    <tr>
+                        <td>Loading...</td>
+                    </tr>
+                ) : (
+                    company.companies.map(company => (
+                        <tr key={company._id}>
+                            <td>{company.name}</td>
+                        </tr>
+                    ))
+                )}
             </tbody>
         </table>
     );
 };
 
-export default CompaniesList;
+const mapStateToProps = state => ({
+    company: state.company,
+});
+
+export default connect(
+    mapStateToProps,
+    { fetchCompanies },
+)(CompaniesList);

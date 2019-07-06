@@ -3,10 +3,11 @@ import {
     ADD_COMPANY_FAIL,
     FETCH_COMPANIES_SUCCESS,
     FETCH_COMPANIES_FAIL,
-} from "./types";
+    TOGGLE_COMPANY_LOADING,
+} from "../actions/types";
 
 const initialState = {
-    companies: null,
+    companies: [],
     loading: true,
 };
 
@@ -17,7 +18,7 @@ export default function(state = initialState, action) {
         case ADD_COMPANY_SUCCESS:
             return {
                 ...state,
-                companies: { ...state.companies, payload },
+                companies: [...state.companies, payload],
                 loading: false,
             };
         case FETCH_COMPANIES_SUCCESS:
@@ -25,6 +26,11 @@ export default function(state = initialState, action) {
                 ...state,
                 companies: payload,
                 loading: false,
+            };
+        case TOGGLE_COMPANY_LOADING:
+            return {
+                ...state,
+                loading: true,
             };
 
         case FETCH_COMPANIES_FAIL:

@@ -1,11 +1,14 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+import { addCompany } from "../actions/company";
 
-const CompanyForm = () => {
+const CompanyForm = ({ addCompany }) => {
     const [companyDetails, setCompanyDetails] = useState({ name: "" });
     const handleChange = e => setCompanyDetails({ name: e.target.value });
     const handleSubmit = e => {
         e.preventDefault();
-        // addCompany(companyDetails);
+        addCompany(companyDetails);
+        setCompanyDetails({ name: "" });
     };
     return (
         <form onSubmit={e => handleSubmit(e)}>
@@ -21,4 +24,7 @@ const CompanyForm = () => {
     );
 };
 
-export default CompanyForm;
+export default connect(
+    null,
+    { addCompany },
+)(CompanyForm);

@@ -3,10 +3,12 @@ import {
     ADD_COMPANY_FAIL,
     FETCH_COMPANIES_SUCCESS,
     FETCH_COMPANIES_FAIL,
+    TOGGLE_COMPANY_LOADING,
 } from "./types";
 import axios from "axios";
 
 export const fetchCompanies = () => async dispatch => {
+    dispatch({ type: TOGGLE_COMPANY_LOADING });
     try {
         const res = await axios.get("/api/v1/companies");
 
@@ -27,6 +29,8 @@ export const addCompany = company => async dispatch => {
             "Content-Type": "application/json",
         },
     };
+
+    dispatch({ type: TOGGLE_COMPANY_LOADING });
 
     try {
         const res = await axios.post("/api/v1/companies", company, config);
