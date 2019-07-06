@@ -5,7 +5,7 @@ import CompaniesList from "../../CompaniesList";
 const Companies = () => {
     return (
         <div>
-            <h1>Companies</h1>
+            <h3>Companies</h3>
             <Link to='/companies/new'>New</Link>
             <CompaniesList />
         </div>

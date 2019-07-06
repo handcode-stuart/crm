@@ -4,7 +4,7 @@ import CompanyForm from "../../CompanyForm";
 const NewCompany = () => {
     return (
         <div>
-            <h1>New Company</h1>
+            <h3>New Company</h3>
             <CompanyForm />
         </div>
     );

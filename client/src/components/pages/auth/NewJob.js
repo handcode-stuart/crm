@@ -3,7 +3,7 @@ import React from "react";
 const NewJob = () => {
     return (
         <div>
-            <h1>New Job</h1>
+            <h3>New Job</h3>
         </div>
     );
 };

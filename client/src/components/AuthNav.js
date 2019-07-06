@@ -11,7 +11,7 @@ const StyledAuthNav = styled.nav`
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    border-bottom: 1px solid ${props => props.theme.primaryColor};
+    border-bottom: 1px solid ${props => props.theme.colorGreyLight};
     background-color: #fff;
     z-index: 10;
 `;

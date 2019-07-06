@@ -12,6 +12,8 @@ import store from "./store";
 const theme = {
     primaryColor: "#CCC",
     secondaryColor: "#FFF",
+    colorGreyLight: "#e8e8e8",
+    colorGreyLightest: "#fcfcfc",
 };
 
 // If a token is found in localStorage then set axios headers

@@ -5,7 +5,7 @@ import ContactsList from "../../ContactsList.js";
 const Contacts = () => {
     return (
         <div>
-            <h1>Contacts</h1>
+            <h3>Contacts</h3>
             <Link to='/contacts/new'>New</Link>
             <ContactsList />
         </div>

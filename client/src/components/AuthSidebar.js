@@ -16,7 +16,7 @@ const StyledAuthSidebar = styled.nav`
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    border-right: 1px solid ${props => props.theme.primaryColor};
+    border-right: 1px solid ${props => props.theme.colorGreyLight};
 
     ul {
         list-style-type: none;
@@ -24,7 +24,7 @@ const StyledAuthSidebar = styled.nav`
         padding: 0;
         text-align: center;
 
-        &:nth-child(2) {
+        &:first-child {
             li {
                 margin: 14px 0;
             }
@@ -57,10 +57,6 @@ const StyledAuthSidebar = styled.nav`
 const AuthSidebar = ({ logout }) => {
     return (
         <StyledAuthSidebar>
-            <ul>
-                <li>⭕️</li>
-                <li>⭕️</li>
-            </ul>
             <ul>
                 <li>
                     <Link to='/'>🏠</Link>
