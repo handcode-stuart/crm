@@ -16,11 +16,13 @@ import NewCompany from "../components/pages/auth/NewCompany";
 import Companies from "../components/pages/auth/Companies";
 import Jobs from "../components/pages/auth/Jobs";
 import { fetchCompanies } from "../actions/company";
+import { fetchJobs } from "../actions/job";
 
-const AuthApp = ({ fetchContacts, fetchCompanies }) => {
+const AuthApp = ({ fetchContacts, fetchCompanies, fetchJobs }) => {
     useEffect(() => {
         fetchContacts();
         fetchCompanies();
+        fetchJobs();
     }, []);
     return (
         <Fragment>
@@ -45,5 +47,5 @@ const AuthApp = ({ fetchContacts, fetchCompanies }) => {
 
 export default connect(
     null,
-    { fetchContacts, fetchCompanies },
+    { fetchContacts, fetchCompanies, fetchJobs },
 )(AuthApp);

@@ -1,6 +1,7 @@
 import React from "react";
+import { connect } from "react-redux";
 
-const JobsList = () => {
+const JobsList = ({ job }) => {
     return (
         <table>
             <thead>
@@ -9,12 +10,24 @@ const JobsList = () => {
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Job 1</td>
-                </tr>
+                {job.loading ? (
+                    <tr>
+                        <td>Loading...</td>
+                    </tr>
+                ) : (
+                    job.jobs.map(job => (
+                        <tr key={job._id}>
+                            <td>{job.name}</td>
+                        </tr>
+                    ))
+                )}
             </tbody>
         </table>
     );
 };
 
-export default JobsList;
+const mapStateToProps = state => ({
+    job: state.job,
+});
+
+export default connect(mapStateToProps)(JobsList);
