@@ -1,5 +1,8 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
+
+import { fetchContacts } from "../actions/contact";
 
 import Page from "../components/Page";
 import Dashboard from "../components/pages/auth/Dashboard";
@@ -12,8 +15,13 @@ import NewJob from "../components/pages/auth/NewJob";
 import NewCompany from "../components/pages/auth/NewCompany";
 import Companies from "../components/pages/auth/Companies";
 import Jobs from "../components/pages/auth/Jobs";
+import { fetchCompanies } from "../actions/company";
 
-const AuthApp = () => {
+const AuthApp = ({ fetchContacts, fetchCompanies }) => {
+    useEffect(() => {
+        fetchContacts();
+        fetchCompanies();
+    }, []);
     return (
         <Fragment>
             <AuthNav />
@@ -35,4 +43,7 @@ const AuthApp = () => {
     );
 };
 
-export default AuthApp;
+export default connect(
+    null,
+    { fetchContacts, fetchCompanies },
+)(AuthApp);

@@ -1,11 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { connect } from "react-redux";
-import { fetchCompanies } from "../actions/company";
 
-const CompaniesList = ({ company, fetchCompanies }) => {
-    useEffect(() => {
-        fetchCompanies();
-    }, [fetchCompanies]);
+const CompaniesList = ({ company }) => {
     return (
         <table>
             <thead>
@@ -34,7 +30,4 @@ const mapStateToProps = state => ({
     company: state.company,
 });
 
-export default connect(
-    mapStateToProps,
-    { fetchCompanies },
-)(CompaniesList);
+export default connect(mapStateToProps)(CompaniesList);
