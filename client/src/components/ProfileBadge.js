@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { connect } from "react-redux";
 
 const StyledProfileBadge = styled.div`
     display: flex;
@@ -33,15 +34,19 @@ const StyledProfileBadge = styled.div`
     }
 `;
 
-const ProfileBadge = () => {
+const ProfileBadge = ({ auth: { user } }) => {
     return (
         <StyledProfileBadge>
             <div>
                 <img src='http://placehold.it/40x40' />
             </div>
-            <p>Stuart Morris</p>
+            <p>{user.name}</p>
         </StyledProfileBadge>
     );
 };
 
-export default ProfileBadge;
+const mapStateToProps = state => ({
+    auth: state.auth,
+});
+
+export default connect(mapStateToProps)(ProfileBadge);
