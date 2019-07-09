@@ -1,28 +1,32 @@
 import React from "react";
 import { connect } from "react-redux";
+import { fetchCompanies } from "../actions/company";
 
-const CompaniesList = ({ company }) => {
+const CompaniesList = ({ company, fetchCompanies }) => {
     return (
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                </tr>
-            </thead>
-            <tbody>
-                {company.loading ? (
+        <>
+            <span onClick={() => fetchCompanies()}>Refresh</span>
+            <table>
+                <thead>
                     <tr>
-                        <td>Loading...</td>
+                        <th>Name</th>
                     </tr>
-                ) : (
-                    company.companies.map(company => (
-                        <tr key={company._id}>
-                            <td>{company.name}</td>
+                </thead>
+                <tbody>
+                    {company.loading ? (
+                        <tr>
+                            <td>Loading...</td>
                         </tr>
-                    ))
-                )}
-            </tbody>
-        </table>
+                    ) : (
+                        company.companies.map(company => (
+                            <tr key={company._id}>
+                                <td>{company.name}</td>
+                            </tr>
+                        ))
+                    )}
+                </tbody>
+            </table>
+        </>
     );
 };
 
@@ -30,4 +34,7 @@ const mapStateToProps = state => ({
     company: state.company,
 });
 
-export default connect(mapStateToProps)(CompaniesList);
+export default connect(
+    mapStateToProps,
+    { fetchCompanies },
+)(CompaniesList);

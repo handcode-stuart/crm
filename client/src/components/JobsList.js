@@ -1,28 +1,32 @@
 import React from "react";
 import { connect } from "react-redux";
+import { fetchJobs } from "../actions/job";
 
-const JobsList = ({ job }) => {
+const JobsList = ({ job, fetchJobs }) => {
     return (
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                </tr>
-            </thead>
-            <tbody>
-                {job.loading ? (
+        <>
+            <span onClick={() => fetchJobs()}>Refresh</span>
+            <table>
+                <thead>
                     <tr>
-                        <td>Loading...</td>
+                        <th>Name</th>
                     </tr>
-                ) : (
-                    job.jobs.map(job => (
-                        <tr key={job._id}>
-                            <td>{job.name}</td>
+                </thead>
+                <tbody>
+                    {job.loading ? (
+                        <tr>
+                            <td>Loading...</td>
                         </tr>
-                    ))
-                )}
-            </tbody>
-        </table>
+                    ) : (
+                        job.jobs.map(job => (
+                            <tr key={job._id}>
+                                <td>{job.name}</td>
+                            </tr>
+                        ))
+                    )}
+                </tbody>
+            </table>
+        </>
     );
 };
 
@@ -30,4 +34,7 @@ const mapStateToProps = state => ({
     job: state.job,
 });
 
-export default connect(mapStateToProps)(JobsList);
+export default connect(
+    mapStateToProps,
+    { fetchJobs },
+)(JobsList);

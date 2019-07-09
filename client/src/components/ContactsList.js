@@ -1,28 +1,32 @@
 import React from "react";
 import { connect } from "react-redux";
+import { fetchContacts } from "../actions/contact";
 
-const ContactsList = ({ contact }) => {
+const ContactsList = ({ contact, fetchContacts }) => {
     return (
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                </tr>
-            </thead>
-            <tbody>
-                {contact.loading ? (
+        <>
+            <span onClick={() => fetchContacts()}>Refresh</span>
+            <table>
+                <thead>
                     <tr>
-                        <td>Loading...</td>
+                        <th>Name</th>
                     </tr>
-                ) : (
-                    contact.contacts.map(contact => (
-                        <tr key={contact._id}>
-                            <td>{contact.name}</td>
+                </thead>
+                <tbody>
+                    {contact.loading ? (
+                        <tr>
+                            <td>Loading...</td>
                         </tr>
-                    ))
-                )}
-            </tbody>
-        </table>
+                    ) : (
+                        contact.contacts.map(contact => (
+                            <tr key={contact._id}>
+                                <td>{contact.name}</td>
+                            </tr>
+                        ))
+                    )}
+                </tbody>
+            </table>
+        </>
     );
 };
 
@@ -30,4 +34,7 @@ const mapStateToProps = state => ({
     contact: state.contact,
 });
 
-export default connect(mapStateToProps)(ContactsList);
+export default connect(
+    mapStateToProps,
+    { fetchContacts },
+)(ContactsList);
