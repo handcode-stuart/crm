@@ -1,31 +1,34 @@
 import React from "react";
 import { connect } from "react-redux";
 import { fetchJobs } from "../actions/job";
+import Table, { TableHead, TableHeadCell, TableBody, TableRow, TableCell } from "./Table";
 
 const JobsList = ({ job, fetchJobs }) => {
     return (
         <>
             <span onClick={() => fetchJobs()}>Refresh</span>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                    </tr>
-                </thead>
-                <tbody>
+            <Table>
+                <TableHead>
+                    <TableRow>
+                        <TableHeadCell>ID</TableHeadCell>
+                        <TableHeadCell>Name</TableHeadCell>
+                    </TableRow>
+                </TableHead>
+                <TableBody>
                     {job.loading ? (
-                        <tr>
-                            <td>Loading...</td>
-                        </tr>
+                        <TableRow>
+                            <TableCell>Loading...</TableCell>
+                        </TableRow>
                     ) : (
                         job.jobs.map(job => (
-                            <tr key={job._id}>
-                                <td>{job.name}</td>
-                            </tr>
+                            <TableRow key={job._id}>
+                                <TableCell>ID-{job._id}</TableCell>
+                                <TableCell>{job.name}</TableCell>
+                            </TableRow>
                         ))
                     )}
-                </tbody>
-            </table>
+                </TableBody>
+            </Table>
         </>
     );
 };

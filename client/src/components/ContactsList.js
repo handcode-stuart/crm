@@ -1,31 +1,32 @@
 import React from "react";
 import { connect } from "react-redux";
 import { fetchContacts } from "../actions/contact";
+import Table, { TableHead, TableHeadCell, TableBody, TableRow, TableCell } from "./Table";
 
 const ContactsList = ({ contact, fetchContacts }) => {
     return (
         <>
             <span onClick={() => fetchContacts()}>Refresh</span>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                    </tr>
-                </thead>
-                <tbody>
+            <Table>
+                <TableHead>
+                    <TableRow>
+                        <TableHeadCell>Name</TableHeadCell>
+                    </TableRow>
+                </TableHead>
+                <TableBody>
                     {contact.loading ? (
-                        <tr>
-                            <td>Loading...</td>
-                        </tr>
+                        <TableRow>
+                            <TableCell>Loading...</TableCell>
+                        </TableRow>
                     ) : (
                         contact.contacts.map(contact => (
-                            <tr key={contact._id}>
-                                <td>{contact.name}</td>
-                            </tr>
+                            <TableRow key={contact._id}>
+                                <TableCell>{contact.name}</TableCell>
+                            </TableRow>
                         ))
                     )}
-                </tbody>
-            </table>
+                </TableBody>
+            </Table>
         </>
     );
 };

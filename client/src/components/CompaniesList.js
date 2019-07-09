@@ -1,31 +1,32 @@
 import React from "react";
 import { connect } from "react-redux";
 import { fetchCompanies } from "../actions/company";
+import Table, { TableHead, TableHeadCell, TableBody, TableRow, TableCell } from "./Table";
 
 const CompaniesList = ({ company, fetchCompanies }) => {
     return (
         <>
             <span onClick={() => fetchCompanies()}>Refresh</span>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                    </tr>
-                </thead>
-                <tbody>
+            <Table>
+                <TableHead>
+                    <TableRow>
+                        <TableHeadCell>Name</TableHeadCell>
+                    </TableRow>
+                </TableHead>
+                <TableBody>
                     {company.loading ? (
-                        <tr>
-                            <td>Loading...</td>
-                        </tr>
+                        <TableRow>
+                            <TableCell>Loading...</TableCell>
+                        </TableRow>
                     ) : (
                         company.companies.map(company => (
-                            <tr key={company._id}>
-                                <td>{company.name}</td>
-                            </tr>
+                            <TableRow key={company._id}>
+                                <TableCell>{company.name}</TableCell>
+                            </TableRow>
                         ))
                     )}
-                </tbody>
-            </table>
+                </TableBody>
+            </Table>
         </>
     );
 };
