@@ -3,6 +3,7 @@ import { createGlobalStyle } from "styled-components";
 export default createGlobalStyle`
     * {
         box-sizing: border-box;
+        transition: width 250ms ease-in-out,height 250ms ease-in-out, padding 250ms ease-in-out, margin 250ms ease-in-out, border-radius 250ms ease-in-out;
     }
 
     html, body {
