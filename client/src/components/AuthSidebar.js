@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { logout } from "../actions/auth";
 import styled from "styled-components";
+import ProfileBadge from "./ProfileBadge";
 
 const StyledAuthSidebar = styled.nav`
     position: fixed;
@@ -89,6 +90,7 @@ const StyledAuthSidebar = styled.nav`
 const AuthSidebar = ({ logout }) => {
     return (
         <StyledAuthSidebar>
+            <ProfileBadge />
             <ul>
                 <li>
                     <NavLink activeClassName='active' exact to='/'>

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const StyledButton = styled.div`
+const StyledButton = styled.button`
     background-color: #34335c;
     border-radius: 4px;
     padding: 8px 12px;
