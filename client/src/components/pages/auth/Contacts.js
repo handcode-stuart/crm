@@ -1,12 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import ContactsList from "../../ContactsList.js";
+import Button from "../../Button";
 
 const Contacts = () => {
     return (
         <div>
             <h3>Contacts</h3>
-            <Link to='/contacts/new'>New</Link>
+            <Button to='/contacts/new'>New</Button>
             <ContactsList />
         </div>
     );

@@ -1,12 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Button from "../../Button";
 import CompaniesList from "../../CompaniesList";
 
 const Companies = () => {
     return (
         <div>
             <h3>Companies</h3>
-            <Link to='/companies/new'>New</Link>
+            <Button to='/companies/new'>New</Button>
             <CompaniesList />
         </div>
     );
