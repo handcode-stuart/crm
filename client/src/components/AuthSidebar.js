@@ -7,7 +7,7 @@ import styled from "styled-components";
 
 const StyledAuthSidebar = styled.nav`
     position: absolute;
-    padding: 85px 30px 20px;
+    padding: 85px 0 20px;
     top: 0;
     left: 0;
     width: 160px;
@@ -19,14 +19,8 @@ const StyledAuthSidebar = styled.nav`
 
     ul {
         list-style-type: none;
-        margin: 20px 0 0;
+        margin: 0;
         padding: 0;
-
-        &:first-child {
-            li {
-                margin-bottom: 20px;
-            }
-        }
 
         &:last-child {
             flex: 1;
@@ -43,9 +37,11 @@ const StyledAuthSidebar = styled.nav`
                 margin: 0;
                 color: #000;
                 text-decoration: none;
+                padding: 12px 30px;
+                display: block;
 
                 &:hover {
-                    text-decoration: underline;
+                    background-color: ${props => props.theme.colorGreyLightest};
                 }
             }
         }

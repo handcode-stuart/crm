@@ -1,6 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import { fetchContacts } from "../actions/contact";
 
-const ContactsList = () => {
+const ContactsList = ({ contact, fetchContacts }) => {
+    useEffect(() => {
+        fetchContacts();
+    }, [fetchContacts]);
     return (
         <table>
             <thead>
@@ -9,12 +14,27 @@ const ContactsList = () => {
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Stuart</td>
-                </tr>
+                {contact.loading ? (
+                    <tr>
+                        <td>Loading...</td>
+                    </tr>
+                ) : (
+                    contact.contacts.map(contact => (
+                        <tr key={contact._id}>
+                            <td>{contact.name}</td>
+                        </tr>
+                    ))
+                )}
             </tbody>
         </table>
     );
 };
 
-export default ContactsList;
+const mapStateToProps = state => ({
+    contact: state.contact,
+});
+
+export default connect(
+    mapStateToProps,
+    { fetchContacts },
+)(ContactsList);
