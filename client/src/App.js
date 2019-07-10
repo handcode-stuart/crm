@@ -3,7 +3,7 @@ import { Provider } from "react-redux";
 import { BrowserRouter as Router } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 
-import GlobalStyle from "./GlobalStyle";
+import GlobalStyle from "./components/styles/GlobalStyle";
 import { loadUser } from "./actions/auth";
 import RouteMapper from "./routing/RouteMapper";
 import setAuthToken from "./utils/setAuthToken";
