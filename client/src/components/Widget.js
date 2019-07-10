@@ -1,8 +1,18 @@
 import React from "react";
+import { connect } from "react-redux";
 import StyledWidget from "./styles/Widget";
 
-const Widget = ({ children }) => {
-    return <StyledWidget>{children}</StyledWidget>;
+const Widget = ({ job: { jobs } }) => {
+    return (
+        <StyledWidget>
+            <div>Current active jobs</div>
+            <div>{jobs.length}</div>
+        </StyledWidget>
+    );
 };
 
-export default Widget;
+const mapStateToProps = state => ({
+    job: state.job,
+});
+
+export default connect(mapStateToProps)(Widget);
