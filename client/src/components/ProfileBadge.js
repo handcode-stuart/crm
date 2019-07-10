@@ -34,13 +34,14 @@ const StyledProfileBadge = styled.div`
     }
 `;
 
-const ProfileBadge = ({ auth: { user } }) => {
+const ProfileBadge = ({ auth }) => {
+    const { user } = auth;
     return (
         <StyledProfileBadge>
             <div>
                 <img src='http://placehold.it/40x40' />
             </div>
-            <p>{user.name}</p>
+            {user && <p>{user.name}</p>}
         </StyledProfileBadge>
     );
 };
