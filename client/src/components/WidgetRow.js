@@ -1,5 +1,5 @@
 import React from "react";
-import WidgetRow from "./styles/WidgetRow";
+import StyledWidgetRow from "./styles/WidgetRow";
 
 const WidgetRow = ({ children }) => {
     return <StyledWidgetRow>{children}</StyledWidgetRow>;
