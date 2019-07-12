@@ -6,7 +6,7 @@ const ProfileBadge = ({ user }) => {
     return (
         <StyledProfileBadge>
             <div>
-                <img src='http://placehold.it/40x40' alt={`${name}'s profile picture`} />
+                <img src='http://placehold.it/40x40' alt={name} />
             </div>
             <p>{name}</p>
         </StyledProfileBadge>

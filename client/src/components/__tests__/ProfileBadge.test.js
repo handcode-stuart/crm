@@ -21,6 +21,6 @@ describe("<ProfileBadge />", () => {
 
     it("the profile image alt is populated", () => {
         const imageAlt = wrapper.find("img").props().alt;
-        expect(imageAlt).toBe(user.name + "'s profile picture");
+        expect(imageAlt).toBe(user.name);
     });
 });
