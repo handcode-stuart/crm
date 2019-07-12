@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Spinner /> renders and matches the snapshot 1`] = `"<div><p>Loading...</p></div>"`;
+
+exports[`<Spinner /> renders with fullpage prop and matches the snapshot 1`] = `"<div class=\\"sc-bdVaJa hAYzll\\"><p>Loading...</p></div>"`;
