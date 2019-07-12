@@ -14,6 +14,9 @@ const theme = {
     secondaryColor: "#FFF",
     colorGreyLight: "#e8e8e8",
     colorGreyLightest: "#fcfcfc",
+    colorGreen: "#30a230",
+    colorRed: "#bf2828",
+    colorWhite: "#fff",
 };
 
 // If a token is found in localStorage then set axios headers

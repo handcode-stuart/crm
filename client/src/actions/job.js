@@ -6,6 +6,7 @@ import {
     TOGGLE_JOB_LOADING,
 } from "./types";
 import axios from "axios";
+import { setAlert } from "./alert";
 
 export const fetchJobs = () => async dispatch => {
     dispatch({ type: TOGGLE_JOB_LOADING });
@@ -35,11 +36,17 @@ export const addJob = job => async dispatch => {
     try {
         const res = await axios.post("/api/v1/jobs", job, config);
 
+        dispatch(setAlert("Job added!", "success"));
+
         dispatch({
             type: ADD_JOB_SUCCESS,
             payload: res.data,
         });
-    } catch (error) {
+    } catch (err) {
+        const errors = err.response.data.errors;
+
+        if (errors) errors.forEach(error => dispatch(setAlert(error.msg, "danger")));
+
         dispatch({
             type: ADD_JOB_FAIL,
         });

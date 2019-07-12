@@ -3,20 +3,21 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
 import { fetchContacts } from "../actions/contact";
-
-import Page from "../components/Page";
-import Dashboard from "../components/pages/auth/Dashboard";
-import AuthNav from "../components/AuthNav";
-import AuthSidebar from "../components/AuthSidebar";
-import Settings from "../components/pages/auth/Settings";
-import Contacts from "../components/pages/auth/Contacts";
-import NewContact from "../components/pages/auth/NewContact";
-import NewJob from "../components/pages/auth/NewJob";
-import NewCompany from "../components/pages/auth/NewCompany";
-import Companies from "../components/pages/auth/Companies";
-import Jobs from "../components/pages/auth/Jobs";
 import { fetchCompanies } from "../actions/company";
 import { fetchJobs } from "../actions/job";
+
+import AlertBox from "../components/AlertBox";
+import AuthNav from "../components/AuthNav";
+import AuthSidebar from "../components/AuthSidebar";
+import Companies from "../components/pages/auth/Companies";
+import Contacts from "../components/pages/auth/Contacts";
+import Dashboard from "../components/pages/auth/Dashboard";
+import Jobs from "../components/pages/auth/Jobs";
+import NewCompany from "../components/pages/auth/NewCompany";
+import NewContact from "../components/pages/auth/NewContact";
+import NewJob from "../components/pages/auth/NewJob";
+import Page from "../components/Page";
+import Settings from "../components/pages/auth/Settings";
 
 const AuthApp = ({ fetchContacts, fetchCompanies, fetchJobs }) => {
     useEffect(() => {
@@ -41,6 +42,7 @@ const AuthApp = ({ fetchContacts, fetchCompanies, fetchJobs }) => {
                     <Route render={() => <Redirect to='/' />} />
                 </Switch>
             </Page>
+            <AlertBox />
         </Fragment>
     );
 };
