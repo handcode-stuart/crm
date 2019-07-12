@@ -1,8 +1,8 @@
 import React from "react";
 import { useFetch } from "../../../hooks";
 
-const SingleJob = ({ match: { params } }) => {
-    const [data, loading] = useFetch("jobs", params.job_id);
+const SingleCompany = ({ match: { params } }) => {
+    const [data, loading] = useFetch("companies", params.company_id);
 
     return (
         <div>
@@ -11,4 +11,4 @@ const SingleJob = ({ match: { params } }) => {
     );
 };
 
-export default SingleJob;
+export default SingleCompany;

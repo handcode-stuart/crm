@@ -56,4 +56,20 @@ router.post(
     },
 );
 
+/**
+ * @route   GET api/v1/jobs/:id
+ * @desc    Get job by id
+ * @access  Private
+ */
+router.get("/:id", auth, async (req, res) => {
+    try {
+        const job = await Job.findById(req.params.id);
+
+        return res.json(job);
+    } catch (err) {
+        console.error(err.message);
+        return res.status(500).send("Server error");
+    }
+});
+
 module.exports = router;

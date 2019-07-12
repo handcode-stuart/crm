@@ -56,4 +56,20 @@ router.post(
     },
 );
 
+/**
+ * @route   GET api/v1/companies/:id
+ * @desc    Get company by id
+ * @access  Private
+ */
+router.get("/:id", auth, async (req, res) => {
+    try {
+        const company = await Company.findById(req.params.id);
+
+        return res.json(company);
+    } catch (err) {
+        console.error(err.message);
+        return res.status(500).send("Server error");
+    }
+});
+
 module.exports = router;

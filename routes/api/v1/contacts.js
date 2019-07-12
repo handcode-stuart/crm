@@ -56,4 +56,20 @@ router.post(
     },
 );
 
+/**
+ * @route   GET api/v1/contacts/:id
+ * @desc    Get contact by id
+ * @access  Private
+ */
+router.get("/:id", auth, async (req, res) => {
+    try {
+        const contact = await Contact.findById(req.params.id);
+
+        return res.json(contact);
+    } catch (err) {
+        console.error(err.message);
+        return res.status(500).send("Server error");
+    }
+});
+
 module.exports = router;

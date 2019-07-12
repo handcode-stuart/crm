@@ -13,6 +13,7 @@ import AuthSidebar from "../components/AuthSidebar";
 import Companies from "../components/pages/auth/Companies";
 import Contacts from "../components/pages/auth/Contacts";
 import SingleContact from "../components/pages/auth/SingleContact";
+import SingleCompany from "../components/pages/auth/SingleCompany";
 import Dashboard from "../components/pages/auth/Dashboard";
 import Jobs from "../components/pages/auth/Jobs";
 import SingleJob from "../components/pages/auth/SingleJob";
@@ -61,6 +62,7 @@ const AuthApp = ({ settings: { theme }, fetchContacts, fetchCompanies, fetchJobs
                         <Route path='/contacts/:contact_id' component={SingleContact} />
                         <Route exact path='/companies' component={Companies} />
                         <Route path='/companies/new' component={NewCompany} />
+                        <Route path='/companies/:company_id' component={SingleCompany} />
                         <Route exact path='/jobs' component={Jobs} />
                         <Route path='/jobs/new' component={NewJob} />
                         <Route path='/jobs/:job_id' component={SingleJob} />
