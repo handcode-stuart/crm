@@ -11,6 +11,7 @@ import AuthNav from "../components/AuthNav";
 import AuthSidebar from "../components/AuthSidebar";
 import Companies from "../components/pages/auth/Companies";
 import Contacts from "../components/pages/auth/Contacts";
+import SingleContact from "../components/pages/auth/SingleContact";
 import Dashboard from "../components/pages/auth/Dashboard";
 import Jobs from "../components/pages/auth/Jobs";
 import NewCompany from "../components/pages/auth/NewCompany";
@@ -34,6 +35,7 @@ const AuthApp = ({ fetchContacts, fetchCompanies, fetchJobs }) => {
                     <Route exact path='/' component={Dashboard} />
                     <Route exact path='/contacts' component={Contacts} />
                     <Route path='/contacts/new' component={NewContact} />
+                    <Route path='/contacts/:contact_id' component={SingleContact} />
                     <Route exact path='/companies' component={Companies} />
                     <Route path='/companies/new' component={NewCompany} />
                     <Route exact path='/jobs' component={Jobs} />

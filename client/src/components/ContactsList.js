@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { fetchContacts } from "../actions/contact";
 import Table, { TableHead, TableHeadCell, TableBody, TableRow, TableCell } from "./Table";
+import Button from "./Button";
 
 const ContactsList = ({ contact, fetchContacts }) => {
     return (
@@ -11,6 +12,7 @@ const ContactsList = ({ contact, fetchContacts }) => {
                 <TableHead>
                     <TableRow>
                         <TableHeadCell>Name</TableHeadCell>
+                        <TableHeadCell>Action</TableHeadCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -22,6 +24,9 @@ const ContactsList = ({ contact, fetchContacts }) => {
                         contact.contacts.map(contact => (
                             <TableRow key={contact._id}>
                                 <TableCell>{contact.name}</TableCell>
+                                <TableCell>
+                                    <Button to={`/contacts/${contact._id}`}>View</Button>
+                                </TableCell>
                             </TableRow>
                         ))
                     )}
