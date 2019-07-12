@@ -9,6 +9,7 @@ export default styled.nav`
     height: 100%;
     display: flex;
     flex-direction: column;
+    background-color: ${props => props.theme.backgroundColor};
     justify-content: flex-start;
     border-right: 1px solid ${props => props.theme.colorGreyLight};
 
@@ -35,7 +36,7 @@ export default styled.nav`
 
             a {
                 margin: 0;
-                color: #000;
+                color: ${props => props.theme.copyColor};
                 text-decoration: none;
                 padding: 12px 0;
                 display: flex;
@@ -49,7 +50,8 @@ export default styled.nav`
 
                 &:hover,
                 &.active {
-                    background-color: ${props => props.theme.colorGreyLightest};
+                    background-color: ${props => props.theme.copyColor};
+                    color: ${props => props.theme.backgroundColor};
                 }
 
                 span {

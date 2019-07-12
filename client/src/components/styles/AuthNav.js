@@ -11,7 +11,8 @@ export default styled.nav`
     justify-content: flex-end;
     align-items: center;
     border-bottom: 1px solid ${props => props.theme.colorGreyLight};
-    background-color: #fff;
+    background-color: ${props => props.theme.backgroundColor};
+    color: ${props => props.theme.copyColor};
     z-index: 10;
 
     @media only screen and (min-width: 740px) {

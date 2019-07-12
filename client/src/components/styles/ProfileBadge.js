@@ -25,6 +25,7 @@ export default styled.div`
         margin: 0;
         line-height: 1;
         display: none;
+        color: ${props => props.theme.copyColor};
 
         @media only screen and (min-width: 740px) {
             display: block;

@@ -5,7 +5,8 @@ export default styled.div`
     width: 100%;
     height: 250px;
     border-radius: 4px;
-    background-color: ${props => props.theme.colorGreyLightest};
+    background-color: ${props => props.theme.backgroundColor};
+    color: ${props => props.theme.copyColor};
     margin-bottom: 20px;
     display: flex;
     flex-direction: column;
@@ -21,7 +22,6 @@ export default styled.div`
 
     > div:last-child {
         height: calc(100% - 30px);
-        background-color: #fff;
         display: flex;
         justify-content: center;
         align-items: center;

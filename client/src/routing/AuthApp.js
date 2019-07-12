@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
+import { ThemeProvider } from "styled-components";
 
 import { fetchContacts } from "../actions/contact";
 import { fetchCompanies } from "../actions/company";
@@ -21,37 +22,63 @@ import NewJob from "../components/pages/auth/NewJob";
 import Page from "../components/Page";
 import Settings from "../components/pages/auth/Settings";
 
-const AuthApp = ({ fetchContacts, fetchCompanies, fetchJobs }) => {
+const lightTheme = {
+    backgroundColor: "#fff",
+    copyColor: "#2d2c33",
+    colorGreyLight: "#e8e8e8",
+    colorGreyLightest: "#fcfcfc",
+    colorGreen: "#30a230",
+    colorRed: "#bf2828",
+    colorWhite: "#fff",
+};
+
+const darkTheme = {
+    backgroundColor: "#2d2c33",
+    copyColor: "#fff",
+    colorGreyLight: "#e8e8e8",
+    colorGreyLightest: "#fcfcfc",
+    colorGreen: "#30a230",
+    colorRed: "#bf2828",
+    colorWhite: "#fff",
+};
+
+const AuthApp = ({ settings: { theme }, fetchContacts, fetchCompanies, fetchJobs }) => {
     useEffect(() => {
         fetchContacts();
         fetchCompanies();
         fetchJobs();
     }, []);
     return (
-        <Fragment>
-            <AuthNav />
-            <AuthSidebar />
-            <Page>
-                <Switch>
-                    <Route exact path='/' component={Dashboard} />
-                    <Route exact path='/contacts' component={Contacts} />
-                    <Route path='/contacts/new' component={NewContact} />
-                    <Route path='/contacts/:contact_id' component={SingleContact} />
-                    <Route exact path='/companies' component={Companies} />
-                    <Route path='/companies/new' component={NewCompany} />
-                    <Route exact path='/jobs' component={Jobs} />
-                    <Route path='/jobs/new' component={NewJob} />
-                    <Route path='/jobs/:job_id' component={SingleJob} />
-                    <Route path='/settings' component={Settings} />
-                    <Route render={() => <Redirect to='/' />} />
-                </Switch>
-            </Page>
-            <AlertBox />
-        </Fragment>
+        <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+            <Fragment>
+                <AuthNav />
+                <AuthSidebar />
+                <Page>
+                    <Switch>
+                        <Route exact path='/' component={Dashboard} />
+                        <Route exact path='/contacts' component={Contacts} />
+                        <Route path='/contacts/new' component={NewContact} />
+                        <Route path='/contacts/:contact_id' component={SingleContact} />
+                        <Route exact path='/companies' component={Companies} />
+                        <Route path='/companies/new' component={NewCompany} />
+                        <Route exact path='/jobs' component={Jobs} />
+                        <Route path='/jobs/new' component={NewJob} />
+                        <Route path='/jobs/:job_id' component={SingleJob} />
+                        <Route path='/settings' component={Settings} />
+                        <Route render={() => <Redirect to='/' />} />
+                    </Switch>
+                </Page>
+                <AlertBox />
+            </Fragment>
+        </ThemeProvider>
     );
 };
 
+const mapStateToProps = state => ({
+    settings: state.settings,
+});
+
 export default connect(
-    null,
+    mapStateToProps,
     { fetchContacts, fetchCompanies, fetchJobs },
 )(AuthApp);

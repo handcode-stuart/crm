@@ -4,6 +4,7 @@ import auth from "./auth";
 import company from "./company";
 import contact from "./contact";
 import job from "./job";
+import settings from "./settings";
 
 export default combineReducers({
     auth,
@@ -11,4 +12,5 @@ export default combineReducers({
     company,
     contact,
     job,
+    settings,
 });
