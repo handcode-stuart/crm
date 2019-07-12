@@ -13,7 +13,7 @@ export default styled.ul`
     li {
         border: 1px solid ${props => props.theme.colorGreyLight};
         border-radius: 4px;
-        padding: 12px 16px;
+        padding: 16px;
         margin-top: 12px;
 
         &.danger {

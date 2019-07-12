@@ -14,6 +14,7 @@ import Contacts from "../components/pages/auth/Contacts";
 import SingleContact from "../components/pages/auth/SingleContact";
 import Dashboard from "../components/pages/auth/Dashboard";
 import Jobs from "../components/pages/auth/Jobs";
+import SingleJob from "../components/pages/auth/SingleJob";
 import NewCompany from "../components/pages/auth/NewCompany";
 import NewContact from "../components/pages/auth/NewContact";
 import NewJob from "../components/pages/auth/NewJob";
@@ -40,6 +41,7 @@ const AuthApp = ({ fetchContacts, fetchCompanies, fetchJobs }) => {
                     <Route path='/companies/new' component={NewCompany} />
                     <Route exact path='/jobs' component={Jobs} />
                     <Route path='/jobs/new' component={NewJob} />
+                    <Route path='/jobs/:job_id' component={SingleJob} />
                     <Route path='/settings' component={Settings} />
                     <Route render={() => <Redirect to='/' />} />
                 </Switch>

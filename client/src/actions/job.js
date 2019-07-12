@@ -31,12 +31,12 @@ export const addJob = job => async dispatch => {
         },
     };
 
-    dispatch({ type: TOGGLE_JOB_LOADING });
-
     try {
         const res = await axios.post("/api/v1/jobs", job, config);
 
         dispatch(setAlert("Job added!", "success"));
+
+        dispatch({ type: TOGGLE_JOB_LOADING });
 
         dispatch({
             type: ADD_JOB_SUCCESS,

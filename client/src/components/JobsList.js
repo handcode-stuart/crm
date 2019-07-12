@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { fetchJobs } from "../actions/job";
 import Table, { TableHead, TableHeadCell, TableBody, TableRow, TableCell } from "./Table";
+import Button from "./Button";
 
 const JobsList = ({ job, fetchJobs }) => {
     return (
@@ -12,6 +13,7 @@ const JobsList = ({ job, fetchJobs }) => {
                     <TableRow>
                         <TableHeadCell>ID</TableHeadCell>
                         <TableHeadCell>Name</TableHeadCell>
+                        <TableHeadCell>Actions</TableHeadCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -24,6 +26,9 @@ const JobsList = ({ job, fetchJobs }) => {
                             <TableRow key={job._id}>
                                 <TableCell>ID-{job._id}</TableCell>
                                 <TableCell>{job.name}</TableCell>
+                                <TableCell>
+                                    <Button to={`/jobs/${job._id}`}>View</Button>
+                                </TableCell>
                             </TableRow>
                         ))
                     )}

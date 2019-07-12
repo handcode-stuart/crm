@@ -31,12 +31,12 @@ export const addContact = contact => async dispatch => {
         },
     };
 
-    dispatch({ type: TOGGLE_CONTACT_LOADING });
-
     try {
         const res = await axios.post("/api/v1/contacts", contact, config);
 
         dispatch(setAlert("Contact added!", "success"));
+
+        dispatch({ type: TOGGLE_CONTACT_LOADING });
 
         dispatch({
             type: ADD_CONTACT_SUCCESS,

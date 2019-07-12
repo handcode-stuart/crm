@@ -31,12 +31,12 @@ export const addCompany = company => async dispatch => {
         },
     };
 
-    dispatch({ type: TOGGLE_COMPANY_LOADING });
-
     try {
         const res = await axios.post("/api/v1/companies", company, config);
 
         dispatch(setAlert("Company added!", "success"));
+
+        dispatch({ type: TOGGLE_COMPANY_LOADING });
 
         dispatch({
             type: ADD_COMPANY_SUCCESS,

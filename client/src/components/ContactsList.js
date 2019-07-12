@@ -12,7 +12,7 @@ const ContactsList = ({ contact, fetchContacts }) => {
                 <TableHead>
                     <TableRow>
                         <TableHeadCell>Name</TableHeadCell>
-                        <TableHeadCell>Action</TableHeadCell>
+                        <TableHeadCell>Actions</TableHeadCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
