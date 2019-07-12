@@ -1,7 +1,7 @@
 import { TOGGLE_LIGHT_THEME, TOGGLE_DARK_THEME } from "../actions/types";
 
 const initialState = {
-    theme: "dark",
+    theme: "light",
 };
 
 export default function(state = initialState, action) {

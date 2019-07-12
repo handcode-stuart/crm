@@ -24,7 +24,7 @@ import Settings from "../components/pages/auth/Settings";
 
 const lightTheme = {
     backgroundColor: "#fff",
-    copyColor: "#2d2c33",
+    copyColor: "#323135",
     colorGreyLight: "#e8e8e8",
     colorGreyLightest: "#fcfcfc",
     colorGreen: "#30a230",
@@ -33,7 +33,7 @@ const lightTheme = {
 };
 
 const darkTheme = {
-    backgroundColor: "#2d2c33",
+    backgroundColor: "#323135",
     copyColor: "#fff",
     colorGreyLight: "#e8e8e8",
     colorGreyLightest: "#fcfcfc",
