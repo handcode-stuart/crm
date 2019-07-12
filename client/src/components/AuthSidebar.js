@@ -7,10 +7,10 @@ import ProfileBadge from "./ProfileBadge";
 
 import StyledAuthSidebar from "./styles/AuthSidebar";
 
-const AuthSidebar = ({ logout }) => {
+const AuthSidebar = ({ auth: { user }, logout }) => {
     return (
         <StyledAuthSidebar>
-            <ProfileBadge />
+            {user && <ProfileBadge user={user} />}
             <ul>
                 <li>
                     <NavLink activeClassName='active' exact to='/'>
@@ -49,7 +49,11 @@ AuthSidebar.propTypes = {
     logout: PropTypes.func.isRequired,
 };
 
+const mapStateToProps = state => ({
+    auth: state.auth,
+});
+
 export default connect(
-    null,
+    mapStateToProps,
     { logout },
 )(AuthSidebar);

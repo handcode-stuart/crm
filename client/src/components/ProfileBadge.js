@@ -1,22 +1,16 @@
 import React from "react";
-import { connect } from "react-redux";
-
 import StyledProfileBadge from "./styles/ProfileBadge";
 
-const ProfileBadge = ({ auth }) => {
-    const { user } = auth;
+const ProfileBadge = ({ user }) => {
+    const { name } = user;
     return (
         <StyledProfileBadge>
             <div>
-                <img src='http://placehold.it/40x40' />
+                <img src='http://placehold.it/40x40' alt={`${name}'s profile picture`} />
             </div>
-            {user && <p>{user.name}</p>}
+            <p>{name}</p>
         </StyledProfileBadge>
     );
 };
 
-const mapStateToProps = state => ({
-    auth: state.auth,
-});
-
-export default connect(mapStateToProps)(ProfileBadge);
+export default ProfileBadge;
