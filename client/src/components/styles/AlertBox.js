@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export default styled.ul`
-    position: absolute;
+    position: fixed;
     bottom: 10px;
     right: 10px;
     width: calc(100% - 20px);

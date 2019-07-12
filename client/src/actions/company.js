@@ -6,6 +6,7 @@ import {
     TOGGLE_COMPANY_LOADING,
 } from "./types";
 import axios from "axios";
+import { setAlert } from "./alert";
 
 export const fetchCompanies = () => async dispatch => {
     dispatch({ type: TOGGLE_COMPANY_LOADING });
@@ -35,11 +36,17 @@ export const addCompany = company => async dispatch => {
     try {
         const res = await axios.post("/api/v1/companies", company, config);
 
+        dispatch(setAlert("Company added!", "success"));
+
         dispatch({
             type: ADD_COMPANY_SUCCESS,
             payload: res.data,
         });
-    } catch (error) {
+    } catch (err) {
+        const errors = err.response.data.errors;
+
+        if (errors) errors.forEach(error => dispatch(setAlert(error.msg, "danger")));
+
         dispatch({
             type: ADD_COMPANY_FAIL,
         });

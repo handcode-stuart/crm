@@ -4,12 +4,15 @@ import { addCompany } from "../actions/company";
 
 const CompanyForm = ({ addCompany }) => {
     const [companyDetails, setCompanyDetails] = useState({ name: "" });
+
     const handleChange = e => setCompanyDetails({ name: e.target.value });
+
     const handleSubmit = e => {
         e.preventDefault();
         addCompany(companyDetails);
         setCompanyDetails({ name: "" });
     };
+
     return (
         <form onSubmit={e => handleSubmit(e)}>
             <input

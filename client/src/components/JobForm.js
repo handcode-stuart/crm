@@ -4,12 +4,15 @@ import { addJob } from "../actions/job";
 
 const JobForm = ({ addJob }) => {
     const [jobDetails, setJobDetails] = useState({ name: "" });
+
     const handleChange = e => setJobDetails({ name: e.target.value });
+
     const handleSubmit = e => {
         e.preventDefault();
         addJob(jobDetails);
         setJobDetails({ name: "" });
     };
+
     return (
         <form onSubmit={e => handleSubmit(e)}>
             <input

@@ -4,12 +4,15 @@ import { addContact } from "../actions/contact";
 
 const ContactForm = ({ addContact }) => {
     const [contactDetails, setContactDetails] = useState({ name: "" });
+
     const handleChange = e => setContactDetails({ name: e.target.value });
+
     const handleSubmit = e => {
         e.preventDefault();
         addContact(contactDetails);
         setContactDetails({ name: "" });
     };
+
     return (
         <form onSubmit={e => handleSubmit(e)}>
             <input

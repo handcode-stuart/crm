@@ -6,6 +6,7 @@ import {
     TOGGLE_CONTACT_LOADING,
 } from "./types";
 import axios from "axios";
+import { setAlert } from "./alert";
 
 export const fetchContacts = () => async dispatch => {
     dispatch({ type: TOGGLE_CONTACT_LOADING });
@@ -35,11 +36,17 @@ export const addContact = contact => async dispatch => {
     try {
         const res = await axios.post("/api/v1/contacts", contact, config);
 
+        dispatch(setAlert("Contact added!", "success"));
+
         dispatch({
             type: ADD_CONTACT_SUCCESS,
             payload: res.data,
         });
-    } catch (error) {
+    } catch (err) {
+        const errors = err.response.data.errors;
+
+        if (errors) errors.forEach(error => dispatch(setAlert(error.msg, "danger")));
+
         dispatch({
             type: ADD_CONTACT_FAIL,
         });
