@@ -27,11 +27,8 @@ if (process.env.NODE_ENV === "production") {
     });
 }
 
+// Set port
+const PORT = process.env.PORT || 3090;
+
 // App listen
-app.listen(process.env.PORT || 3090, function() {
-    console.log(
-        "Express server listening on port %d in %s mode",
-        this.address().port,
-        app.settings.env,
-    );
-});
+app.listen(PORT);
