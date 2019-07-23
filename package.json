@@ -4,7 +4,7 @@
     "description": "A custom CRM.",
     "main": "server.js",
     "engines": {
-        "node": "11.x"
+        "node": ">=8.0.0 <11.0.0"
     },
     "scripts": {
         "start": "node server",
